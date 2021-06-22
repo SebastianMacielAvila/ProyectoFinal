@@ -9,6 +9,8 @@
 	<body>
 <?php
 //Recibir el valor que viaja en la URL
+session_start();
+if($_SESSION['auth'] == true){
 $id = $_GET['id'];
 //echo "El id del libro es: ".$id;
 echo "IMPORTANTE: Una vez que el registro sea borrado, no se podrá recuperar, favor de verificar que el registro a eliminar sea el correcto.";
@@ -46,6 +48,10 @@ if($con){
 	</form>
 	</body>
 <?php
+	}
+}
+else{
+	header('Location: ingreso.php');	
 }
 ?>
 </html>
