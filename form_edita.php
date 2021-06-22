@@ -9,6 +9,8 @@
 	<body>
 <?php
 //Recibir el valor que viaja en la URL
+session_start();
+if($_SESSION['auth'] == true){
 $id = $_GET['id'];
 //echo "El id del libro es: ".$id;
 //Consulta de los datos del libro con ese ID, para mostrarlos en el formulario.
@@ -34,6 +36,10 @@ if($con){
 			<input type="submit" value="Enviar">
 		</form>
 <?php
+	}
+}
+else{
+	header('Location: ingreso.php');	
 }
 ?>
 	</body>
